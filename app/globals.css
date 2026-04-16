@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: var(--font-manrope);
+  --font-body: var(--font-inter);
+  --font-label: var(--font-inter);
+
+  --color-surface-container-highest: #dfe3e1;
+  --color-on-secondary-container: #3f6b57;
+  --color-on-background: #181c1c;
+  --color-tertiary-fixed: #ffdad7;
+  --color-on-secondary: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary: #ffffff;
+  --color-secondary-container: #baebd0;
+  --color-surface: #f6faf8;
+  --color-tertiary: #a13e39;
+  --color-on-primary: #ffffff;
+  --color-tertiary-container: #e26f68;
+  --color-inverse-surface: #2d3130;
+  --color-secondary: #3b6752;
+  --color-secondary-fixed-dim: #a1d1b8;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #eef2f0;
+  --color-surface-bright: #f6faf8;
+  --color-surface-variant: #dfe3e1;
+  --color-on-primary-fixed: #002114;
+  --color-on-tertiary-fixed: #410004;
+  --color-surface-container-high: #e5e9e7;
+  --color-primary-fixed-dim: #5bdda8;
+  --color-primary-container: #00a676;
+  --color-on-surface: #181c1c;
+  --color-error: #ba1a1a;
+  --color-primary-fixed: #7afac3;
+  --color-outline: #6d7a72;
+  --color-on-tertiary-fixed-variant: #812624;
+  --color-on-secondary-fixed-variant: #224f3c;
+  --color-surface-tint: #006c4b;
+  --color-tertiary-fixed-dim: #ffb3ad;
+  --color-on-secondary-fixed: #002114;
+  --color-on-primary-fixed-variant: #005138;
+  --color-on-tertiary-container: #5a080c;
+  --color-primary: #006c4b;
+  --color-inverse-primary: #5bdda8;
+  --color-on-error-container: #93000a;
+  --color-on-surface-variant: #3d4a42;
+  --color-on-primary-container: #003221;
+  --color-surface-container: #ebefed;
+  --color-secondary-fixed: #bdedd3;
+  --color-background: #f6faf8;
+  --color-on-error: #ffffff;
+  --color-surface-container-low: #f0f4f2;
+  --color-surface-dim: #d7dbd9;
+  --color-outline-variant: #bccac0;
+
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .whisper-shadow {
+    box-shadow: 0px 20px 40px rgba(24, 28, 28, 0.06);
+  }
+  .code-glow {
+    box-shadow: 0 0 40px -10px rgba(0, 166, 118, 0.2);
+  }
+  .primary-gradient {
+    background: linear-gradient(135deg, #006c4b 0%, #00a676 100%);
+  }
+  .glass-nav {
+    backdrop-filter: blur(20px);
+  }
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+h1, h2, h3, .font-headline {
+  font-family: var(--font-manrope), sans-serif;
+}
