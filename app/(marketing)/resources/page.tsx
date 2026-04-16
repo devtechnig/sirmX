@@ -4,8 +4,8 @@ export default function ResourcesPage() {
   return (
     <main className="pt-24">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32">
-        <div className="max-w-3xl">
+      <section className="py-20 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6">
           <span className="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-widest uppercase text-primary bg-primary-fixed/20 rounded-full">
             Knowledge Hub
           </span>
@@ -21,7 +21,8 @@ export default function ResourcesPage() {
       </section>
 
       {/* Featured Content: Bento Style */}
-      <section className="max-w-7xl mx-auto px-6 mb-24">
+      <section className="mb-24">
+        <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Large Featured Card */}
           <div className="lg:col-span-8 group relative overflow-hidden rounded-3xl bg-surface-container-low aspect-[16/10] lg:aspect-auto lg:h-[600px] flex flex-col justify-end p-10">
@@ -78,10 +79,12 @@ export default function ResourcesPage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Article Grid */}
-      <section className="max-w-7xl mx-auto px-6 py-20 border-t border-outline-variant/10">
+      <section className="py-20 border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-6">
           <div>
             <h2 className="text-3xl font-bold text-on-background">Latest Articles</h2>
@@ -178,10 +181,12 @@ export default function ResourcesPage() {
             Browse All Insights
           </button>
         </div>
+        </div>
       </section>
 
       {/* Help Center Link: CTA Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
         <div className="bg-surface-container-high rounded-[3rem] p-12 lg:p-20 flex flex-col lg:flex-row items-center gap-12 overflow-hidden relative">
           <div className="absolute -right-20 -top-20 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl"></div>
           <div className="flex-1 relative z-10">
@@ -226,10 +231,12 @@ export default function ResourcesPage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Newsletter Signup */}
-      <section className="max-w-7xl mx-auto px-6 py-24 mb-12">
+      <section className="py-24 mb-12">
+        <div className="max-w-7xl mx-auto px-6">
         <div className="bg-emerald-950 rounded-[2.5rem] p-10 lg:p-16 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
           <div className="relative z-10 max-w-2xl mx-auto">
@@ -253,6 +260,7 @@ export default function ResourcesPage() {
             </form>
             <p className="mt-6 text-xs text-emerald-100/40">By subscribing, you agree to our Privacy Policy and Terms of Service.</p>
           </div>
+        </div>
         </div>
       </section>
     </main>

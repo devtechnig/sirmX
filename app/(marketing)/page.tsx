@@ -1,33 +1,36 @@
 import Image from "next/image";
+import Link from "next/link";
+import PartnerCarousel from "@/components/PartnerCarousel";
+import MotionWrapper from "@/components/ui/MotionWrapper";
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <MotionWrapper className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div className="z-10">
             <span className="inline-block px-4 py-1.5 mb-6 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase">
               Regulatory Intelligence for Nigeria
             </span>
-            <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-8 text-primary">
+            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8 text-primary">
               Local Compliance. <br />
               Automated.
             </h1>
             <p className="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-10 max-w-xl">
-              sirmX continuously tracks FIRS, CBN, and SEC updates, simplifying complex Nigerian regulations into actionable steps to save your business millions in avoidable fines.
+              sirmX continuously tracks every Nigerian regulatory body — federal agencies like the FIRS, CBN, NAFDAC, NCC, CAC, NDIC, EFCC, PENCOM, and NITDA, as well as state-level authorities like LIRS and SIRS — simplifying complex regulations into clear, actionable steps that save your business millions in avoidable fines.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-base hover:opacity-90 transition-all whisper-shadow">
+              <Link href="/register" className="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-base hover:opacity-90 transition-all whisper-shadow">
                 Start Free Trial
-              </button>
-              <button className="bg-surface-container-highest text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-base hover:bg-surface-container-high transition-all">
-                See How It Works
-              </button>
+              </Link>
+              <Link href="/login" className="bg-surface-container-highest text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-base hover:bg-surface-container-high transition-all">
+                Login
+              </Link>
             </div>
           </div>
           <div className="relative">
-            <div className="bg-white rounded-2xl p-4 whisper-shadow border border-outline-variant/10">
+            <div className="bg-surface-container-lowest rounded-2xl p-4 shadow-xl border border-outline-variant/10">
               <Image
                 alt="sirmX Nigerian Regulatory Dashboard"
                 className="rounded-xl w-full h-auto object-cover"
@@ -35,7 +38,7 @@ export default function Home() {
                 width={800}
                 height={600}
               />
-              <div className="absolute -bottom-6 -left-6 bg-surface-container-lowest p-6 rounded-2xl whisper-shadow max-w-xs border border-outline-variant/5">
+              <MotionWrapper delay={0.4} direction="left" className="absolute -bottom-6 -left-6 bg-surface-container-low p-6 rounded-2xl shadow-2xl border border-outline-variant/10">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>
                     notifications_active
@@ -47,32 +50,17 @@ export default function Home() {
                   <div className="h-2 bg-surface-container-high rounded-full w-3/4"></div>
                   <div className="h-2 bg-surface-container-high rounded-full w-5/6"></div>
                 </div>
-              </div>
+              </MotionWrapper>
             </div>
           </div>
-        </div>
+        </MotionWrapper>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-12 bg-surface-container-low">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-outline mb-10">
-            Empowering Nigerian Industry Leaders
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-            {/* Placeholder for Nigerian Company Logos - using same visual placeholders for fidelity but context is Nigerian */}
-            <div className="text-xl font-bold text-slate-400">GTCO</div>
-            <div className="text-xl font-bold text-slate-400">MTN Nigeria</div>
-            <div className="text-xl font-bold text-slate-400">Dangote</div>
-            <div className="text-xl font-bold text-slate-400">Flutterwave</div>
-            <div className="text-xl font-bold text-slate-400">Access Bank</div>
-          </div>
-        </div>
-      </section>
+      <PartnerCarousel />
 
       {/* Problem Section */}
-      <section className="py-24 px-6 bg-surface">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 bg-surface">
+        <MotionWrapper className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <h2 className="text-4xl font-extrabold text-primary mb-6">The Nigerian Regulatory Maze</h2>
@@ -80,7 +68,7 @@ export default function Home() {
                 Manual tracking of circulars and policy shifts is slow and prone to error. Missing a single CBN circular or FIRS deadline can cost your business millions in Naira.
               </p>
               <div className="space-y-6">
-                <div className="flex gap-4 p-6 bg-white rounded-xl whisper-shadow">
+                <div className="flex gap-4 p-6 bg-surface-container-low rounded-xl border border-outline-variant/10">
                   <span className="material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>
                     error_outline
                   </span>
@@ -91,7 +79,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4 p-6 bg-white rounded-xl whisper-shadow">
+                <div className="flex gap-4 p-6 bg-surface-container-low rounded-xl border border-outline-variant/10">
                   <span className="material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>
                     payments
                   </span>
@@ -114,45 +102,45 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </MotionWrapper>
       </section>
 
       {/* Solution Section */}
-      <section className="py-24 px-6 bg-surface-container-low">
-        <div className="max-w-7xl mx-auto text-center mb-20">
+      <section className="py-24 bg-surface-container-low">
+        <MotionWrapper className="max-w-7xl mx-auto px-6 text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold text-primary mb-6">AI-Powered Compliance</h2>
           <p className="text-lg text-on-surface-variant max-w-3xl mx-auto">
             Our platform continuously monitors Nigerian regulatory agencies, delivering instant intelligence and clear action items.
           </p>
-        </div>
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-2xl whisper-shadow border-t-4 border-primary">
+        </MotionWrapper>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+          <MotionWrapper delay={0.1} className="bg-white p-8 rounded-2xl whisper-shadow border-t-4 border-primary hover-elevate cursor-default">
             <span className="material-symbols-outlined text-primary-container text-4xl mb-6">rss_feed</span>
             <h3 className="text-xl font-bold mb-4 text-on-surface">Continuous Tracking</h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
-              Real-time monitoring of FIRS, CBN, SEC, NCC, and NAFDAC. Never miss a policy change.
+              Real-time monitoring across all Nigerian regulatory bodies — FIRS, CBN, SEC, NAFDAC, NCC, CAC, NERC, NESREA, NDIC, EFCC, ICPC, PENCOM, NITDA, and state-level agencies like LIRS and SIRS. Never miss a policy change.
             </p>
-          </div>
-          <div className="bg-white p-8 rounded-2xl whisper-shadow border-t-4 border-primary">
+          </MotionWrapper>
+          <MotionWrapper delay={0.2} className="bg-white p-8 rounded-2xl whisper-shadow border-t-4 border-primary hover-elevate cursor-default">
             <span className="material-symbols-outlined text-primary-container text-4xl mb-6">auto_awesome_motion</span>
             <h3 className="text-xl font-bold mb-4 text-on-surface">Simplified Action</h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
               We break down complex legal jargon into clear, step-by-step instructions for your team.
             </p>
-          </div>
-          <div className="bg-white p-8 rounded-2xl whisper-shadow border-t-4 border-primary">
+          </MotionWrapper>
+          <MotionWrapper delay={0.3} className="bg-white p-8 rounded-2xl whisper-shadow border-t-4 border-primary hover-elevate cursor-default">
             <span className="material-symbols-outlined text-primary-container text-4xl mb-6">event_upcoming</span>
             <h3 className="text-xl font-bold mb-4 text-on-surface">Deadline Tracking</h3>
             <p className="text-on-surface-variant text-sm leading-relaxed">
               Get instant notifications for exact compliance deadlines and stay ahead of the curve.
             </p>
-          </div>
+          </MotionWrapper>
         </div>
       </section>
 
       {/* Features Bento Grid */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 bg-white">
+        <MotionWrapper className="max-w-7xl mx-auto px-6" direction="none">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {/* Large Feature */}
             <div className="md:col-span-8 bg-surface-container-low p-10 rounded-3xl flex flex-col justify-between">
@@ -211,17 +199,17 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </MotionWrapper>
       </section>
 
       {/* AI Intelligence Flow */}
-      <section className="py-24 px-6 bg-surface-container-low overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 bg-surface-container-low overflow-hidden">
+        <MotionWrapper className="max-w-7xl mx-auto px-6">
           <h2 className="text-center text-3xl font-extrabold text-primary mb-16">How sirmX Works</h2>
           <div className="relative flex flex-col md:flex-row justify-between items-center gap-8">
             {/* Step 1 */}
             <div className="flex flex-col items-center text-center max-w-[250px] z-10">
-              <div className="w-16 h-16 rounded-full bg-white whisper-shadow flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-white whisper-shadow flex items-center justify-center mb-6 hover-elevate cursor-default">
                 <span className="material-symbols-outlined text-primary">search</span>
               </div>
               <h4 className="font-bold mb-2">Monitor</h4>
@@ -232,7 +220,7 @@ export default function Home() {
             </div>
             {/* Step 2 */}
             <div className="flex flex-col items-center text-center max-w-[250px] z-10">
-              <div className="w-16 h-16 rounded-full bg-white whisper-shadow flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-white whisper-shadow flex items-center justify-center mb-6 hover-elevate cursor-default">
                 <span className="material-symbols-outlined text-primary">psychology</span>
               </div>
               <h4 className="font-bold mb-2">Interpret</h4>
@@ -243,37 +231,37 @@ export default function Home() {
             </div>
             {/* Step 3 */}
             <div className="flex flex-col items-center text-center max-w-[250px] z-10">
-              <div className="w-16 h-16 rounded-full bg-primary text-white whisper-shadow flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-primary text-white whisper-shadow flex items-center justify-center mb-6 hover-elevate cursor-default">
                 <span className="material-symbols-outlined">task_alt</span>
               </div>
               <h4 className="font-bold mb-2">Act</h4>
               <p className="text-xs text-on-surface-variant">Instant notifications and exact compliance steps delivered.</p>
             </div>
           </div>
-        </div>
+        </MotionWrapper>
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+      <section className="py-24">
+        <MotionWrapper className="max-w-7xl mx-auto px-6 bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden transition-all duration-500">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-on-primary mb-8 tracking-tight">
               Ready to Secure Your Compliance?
             </h2>
-            <p className="text-primary-fixed text-lg md:text-xl max-w-2xl mx-auto mb-12 opacity-90 font-medium">
+            <p className="text-on-primary/80 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium">
               Join the leading Nigerian businesses using sirmX to stay ahead of policy changes and avoid millions in fines.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
-              <button className="bg-white text-primary px-10 py-5 rounded-2xl font-headline font-extrabold text-lg hover:bg-surface-container transition-all whisper-shadow">
-                Get a Custom Demo
-              </button>
-              <button className="bg-transparent text-white border-2 border-white/30 px-10 py-5 rounded-2xl font-headline font-extrabold text-lg hover:bg-white/10 transition-all">
+              <Link href="/login" className="bg-background text-on-background px-10 py-5 rounded-2xl font-headline font-extrabold text-lg hover:opacity-90 transition-all shadow-xl shadow-black/5 btn-press">
+                Get Started
+              </Link>
+              <Link href="/register" className="bg-transparent text-on-primary border-2 border-on-primary/30 px-10 py-5 rounded-2xl font-headline font-extrabold text-lg hover:bg-on-primary/10 transition-all btn-press">
                 Start Free Trial
-              </button>
+              </Link>
             </div>
           </div>
-        </div>
+        </MotionWrapper>
       </section>
     </>
   );

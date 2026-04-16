@@ -4,7 +4,8 @@ export default function ProductsPage() {
   return (
     <main className="mt-24">
       {/* Hero Section */}
-      <section className="relative px-6 py-24 md:py-32 max-w-7xl mx-auto flex flex-col items-center text-center">
+      <section className="relative py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold tracking-widest uppercase mb-8">
           <span className="material-symbols-outlined text-sm">verified</span>
           Next-Gen Compliance
@@ -16,7 +17,7 @@ export default function ProductsPage() {
           A sovereign intelligence framework designed to automate the complexities of global regulatory mandates. Transform static data into proactive strategy.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="primary-gradient text-white px-8 py-4 rounded-xl font-bold tracking-tight shadow-lg">
+          <button className="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold tracking-tight shadow-lg hover:opacity-90 transition-all">
             Explore Core Modules
           </button>
           <button className="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-bold tracking-tight hover:bg-surface-container-highest transition-colors">
@@ -32,14 +33,15 @@ export default function ProductsPage() {
             height={514}
           />
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Feature Deep-Dives: Smart Monitoring */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-primary font-bold text-sm tracking-widest uppercase mb-4">Module 01</div>
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-6 leading-tight">Smart Monitoring</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-on-surface mb-6 leading-tight">Smart Monitoring</h2>
             <p className="text-on-surface-variant mb-8 text-lg leading-relaxed">
               Continuous oversight across global regulatory bodies. Our AI-driven engine listens to updates in real-time, mapping shifts to your specific business architecture instantly.
             </p>
@@ -108,11 +110,11 @@ export default function ProductsPage() {
               Never miss a deadline. Receive context-aware notifications that prioritize impact, risk level, and required remedial actions.
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 bg-white rounded-2xl shadow-sm border border-outline-variant/10">
+              <div className="p-4 bg-surface-container-low rounded-2xl shadow-sm border border-outline-variant/10">
                 <div className="text-2xl font-bold text-primary mb-1">0ms</div>
                 <div className="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Latency</div>
               </div>
-              <div className="p-4 bg-white rounded-2xl shadow-sm border border-outline-variant/10">
+              <div className="p-4 bg-surface-container-low rounded-2xl shadow-sm border border-outline-variant/10">
                 <div className="text-2xl font-bold text-primary mb-1">Low</div>
                 <div className="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">False Positives</div>
               </div>
@@ -120,9 +122,9 @@ export default function ProductsPage() {
           </div>
           <div className="relative">
             <div className="bg-surface-container-high rounded-3xl p-8 shadow-inner">
-              <div className="bg-white p-6 rounded-2xl shadow-xl border-l-4 border-emerald-600 mb-4 scale-105">
+              <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-xl border-l-4 border-primary mb-4 scale-105 border border-outline-variant/5">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-bold text-emerald-900">High Priority Alert</span>
+                  <span className="font-bold text-on-surface">High Priority Alert</span>
                   <span className="text-xs bg-error-container text-on-error-container px-2 py-0.5 rounded">Critical</span>
                 </div>
                 <p className="text-sm text-on-surface-variant mb-3">
@@ -132,9 +134,9 @@ export default function ProductsPage() {
                   Take Action <span className="material-symbols-outlined text-xs">arrow_forward</span>
                 </button>
               </div>
-              <div className="bg-white p-6 rounded-2xl shadow-lg opacity-60 border-l-4 border-slate-300">
+              <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-lg opacity-60 border-l-4 border-outline-variant border border-outline-variant/5">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-bold text-emerald-900">Scheduled Audit</span>
+                  <span className="font-bold text-on-surface">Scheduled Audit</span>
                   <span className="text-xs bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded">Routine</span>
                 </div>
                 <p className="text-sm text-on-surface-variant">Quarterly compliance reporting for APAC operations commencing.</p>
@@ -145,8 +147,8 @@ export default function ProductsPage() {
       </section>
 
       {/* Integration Section */}
-      <section className="py-24 bg-emerald-900 text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+      <section className="py-24 bg-background text-on-surface overflow-hidden relative border-y border-outline-variant/10 transition-colors duration-500">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
           <Image
             alt="Integration Background"
             className="w-full h-full object-cover"
@@ -155,7 +157,7 @@ export default function ProductsPage() {
           />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-16 tracking-tight">Fits Your Workflow Like a Glove</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-16 tracking-tight text-primary">Fits Your Workflow Like a Glove</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="bg-white/5 backdrop-blur-lg p-8 rounded-3xl border border-white/10 flex flex-col items-center">
               <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-4">
@@ -195,23 +197,23 @@ export default function ProductsPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-10 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="p-10 bg-surface-container-lowest rounded-3xl shadow-sm hover:shadow-md transition-all border border-outline-variant/10">
               <span className="material-symbols-outlined text-primary text-4xl mb-6">lock</span>
-              <h3 className="text-xl font-bold mb-4">Military Grade Encryption</h3>
+              <h3 className="text-xl font-bold mb-4 text-on-surface">Military Grade Encryption</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">
                 AES-256 encryption at rest and TLS 1.3 in transit. Your data is your own.
               </p>
             </div>
-            <div className="p-10 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="p-10 bg-surface-container-lowest rounded-3xl shadow-sm hover:shadow-md transition-all border border-outline-variant/10">
               <span className="material-symbols-outlined text-primary text-4xl mb-6">policy</span>
-              <h3 className="text-xl font-bold mb-4">Zero Trust Architecture</h3>
+              <h3 className="text-xl font-bold mb-4 text-on-surface">Zero Trust Architecture</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">
                 Strict identity verification for every person and device attempting to access resources.
               </p>
             </div>
-            <div className="p-10 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="p-10 bg-surface-container-lowest rounded-3xl shadow-sm hover:shadow-md transition-all border border-outline-variant/10">
               <span className="material-symbols-outlined text-primary text-4xl mb-6">security</span>
-              <h3 className="text-xl font-bold mb-4">Global Compliance</h3>
+              <h3 className="text-xl font-bold mb-4 text-on-surface">Global Compliance</h3>
               <p className="text-on-surface-variant text-sm leading-relaxed">SOC2 Type II, ISO 27001, and GDPR compliant by design.</p>
             </div>
           </div>
@@ -219,27 +221,27 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="bg-surface-container-high rounded-[3rem] p-12 md:p-24 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
-          <div className="absolute -right-24 -bottom-24 w-96 h-96 bg-primary-fixed opacity-10 rounded-full blur-3xl"></div>
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 bg-primary rounded-[3rem] p-12 md:p-24 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative border border-outline-variant/10">
+          <div className="absolute top-0 right-0 w-full h-full bg-primary-container/10 opacity-40 blur-3xl"></div>
           <div className="relative z-10 max-w-xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-emerald-900 mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-on-primary mb-6 tracking-tight">
               Ready to architect your compliance future?
             </h2>
-            <p className="text-on-surface-variant text-lg mb-8">
+            <p className="text-on-primary/80 text-lg mb-8">
               Join the world's most sophisticated regulatory teams and start your transformation today.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="primary-gradient text-white px-10 py-5 rounded-2xl font-bold text-lg scale-95 active:opacity-80 transition-transform">
+              <button className="bg-background text-on-background px-10 py-5 rounded-2xl font-bold text-lg scale-95 hover:opacity-90 active:scale-90 transition-all shadow-xl shadow-black/10">
                 Get Started Now
               </button>
-              <button className="text-emerald-900 px-10 py-5 rounded-2xl font-bold text-lg hover:underline transition-all">
+              <button className="text-on-primary px-10 py-5 rounded-2xl font-bold text-lg hover:bg-on-primary/10 transition-all">
                 Talk to Sales
               </button>
             </div>
           </div>
           <div className="relative z-10">
-            <div className="bg-white p-4 rounded-3xl shadow-2xl border border-outline-variant/20 rotate-3">
+            <div className="bg-surface-container-lowest p-4 rounded-3xl shadow-2xl border border-outline-variant/20 rotate-3">
               <Image
                 alt="Security Expert"
                 className="rounded-2xl w-64 h-64 object-cover"

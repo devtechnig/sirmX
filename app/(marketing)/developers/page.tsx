@@ -4,7 +4,8 @@ export default function DevelopersPage() {
   return (
     <main className="pt-24">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-20 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase">
             <span className="material-symbols-outlined text-[14px]">code</span> Developer Portal
@@ -16,10 +17,10 @@ export default function DevelopersPage() {
             Integrate the Sovereign Intelligence Framework into your stack. Use our production-ready endpoints for automated tracking, summarization, and regulatory extraction.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-lg font-headline font-bold shadow-xl hover:shadow-primary/20 transition-all">
+            <button className="bg-primary text-on-primary px-8 py-4 rounded-lg font-headline font-bold shadow-xl shadow-primary/20 hover:opacity-90 transition-all active:scale-95">
               Get API Keys
             </button>
-            <button className="bg-surface-container-highest text-on-surface px-8 py-4 rounded-lg font-headline font-bold hover:bg-surface-variant transition-all">
+            <button className="bg-surface-container-high text-on-surface px-8 py-4 rounded-lg font-headline font-bold hover:bg-surface-container-highest transition-all border border-outline-variant/10">
               View Documentation
             </button>
           </div>
@@ -61,6 +62,7 @@ export default function DevelopersPage() {
               </p>
             </div>
           </div>
+        </div>
         </div>
       </section>
 
@@ -122,24 +124,25 @@ export default function DevelopersPage() {
       </section>
 
       {/* Documentation Grid: Bento Style */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4">
-          <div className="md:col-span-2 md:row-span-2 bg-surface-container-high p-10 rounded-3xl flex flex-col justify-between">
+          <div className="md:col-span-2 md:row-span-2 bg-surface-container-high p-10 rounded-3xl flex flex-col justify-between border border-outline-variant/10">
             <div>
-              <h2 className="font-headline text-4xl font-bold mb-6">Documentation Hub</h2>
-              <p className="text-on-surface-variant text-lg">
+              <h2 className="font-headline text-4xl font-bold mb-6 text-on-surface">Documentation Hub</h2>
+              <p className="text-on-surface-variant text-lg leading-relaxed">
                 Everything you need to integrate sirmX into your production environment, from authentication to advanced SDK
                 usage.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-              <div className="flex items-center gap-3 bg-surface p-4 rounded-xl border border-outline-variant/20 flex-1 min-w-[140px]">
+              <div className="flex items-center gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/20 flex-1 min-w-[140px]">
                 <span className="material-symbols-outlined text-primary">javascript</span>
-                <span className="text-sm font-semibold">Node.js SDK</span>
+                <span className="text-sm font-semibold text-on-surface">Node.js SDK</span>
               </div>
-              <div className="flex items-center gap-3 bg-surface p-4 rounded-xl border border-outline-variant/20 flex-1 min-w-[140px]">
+              <div className="flex items-center gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/20 flex-1 min-w-[140px]">
                 <span className="material-symbols-outlined text-primary">language</span>
-                <span className="text-sm font-semibold">Python SDK</span>
+                <span className="text-sm font-semibold text-on-surface">Python SDK</span>
               </div>
             </div>
           </div>
@@ -164,36 +167,38 @@ export default function DevelopersPage() {
             <p className="text-xs text-on-surface-variant">SOC2 compliance and data encryption protocols.</p>
           </div>
         </div>
+        </div>
       </section>
 
-      {/* Community Section */}
-      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-outline-variant/10">
-        <div className="bg-inverse-surface rounded-[40px] p-12 lg:p-20 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
-            <Image
-              alt="Community Background"
-              className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJokkNir4KcN-NXXjf5DcC1nasFIHFDeDqqYLBnK2Xf9cXIsWPnWzoTvAkOsb5iPRT3u2vhqQbLwn_8LLsmt0kMBc4a5CczR-g6ISy49IJ5NUF-cXAPDqnZTu6etM6jVvXjiNl57knj0a8WpzM9fq0hxvwDWIBmbEbpUMUmy-KlzJzTYyYhMJDTtw0y1a9C6mxfyPNCp1xuGlhUFbOJze0ymDpVgZ3csPXYaJr3msj4TSBrFTOMtwv1YJgD6N3o5nWtyudjt-lVU"
-              fill
-            />
-          </div>
-          <div className="relative z-10 max-w-2xl">
-            <h2 className="font-headline text-4xl lg:text-5xl font-bold text-white mb-8">
+      <section className="py-24 border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-primary rounded-[40px] p-12 lg:p-20 relative overflow-hidden transition-all duration-500 shadow-2xl shadow-primary/20">
+            <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
+              <Image
+                alt="Community Background"
+                className="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHJokkNir4KcN-NXXjf5DcC1nasFIHFDeDqqYLBnK2Xf9cXIsWPnWzoTvAkOsb5iPRT3u2vhqQbLwn_8LLsmt0kMBc4a5CczR-g6ISy49IJ5NUF-cXAPDqnZTu6etM6jVvXjiNl57knj0a8WpzM9fq0hxvwDWIBmbEbpUMUmy-KlzJzTYyYhMJDTtw0y1a9C6mxfyPNCp1xuGlhUFbOJze0ymDpVgZ3csPXYaJr3msj4TSBrFTOMtwv1YJgD6N3o5nWtyudjt-lVU"
+                fill
+              />
+            </div>
+          <div className="relative z-10 max-w-2xl text-on-primary">
+            <h2 className="font-headline text-4xl lg:text-5xl font-bold mb-8">
               Join the Sovereign Developer Community
             </h2>
-            <p className="text-inverse-on-surface/70 text-lg mb-10">
+            <p className="text-on-primary/80 text-lg mb-10 leading-relaxed">
               Collaborate with thousands of compliance engineers building the next generation of regulatory tech. Share insights,
               get help, and contribute to our open SDKs.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-xl font-headline font-bold flex items-center gap-2">
+              <button className="bg-background text-on-background px-8 py-4 rounded-xl font-headline font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-xl shadow-black/10 active:scale-95">
                 <span className="material-symbols-outlined">forum</span> Join Discord
               </button>
-              <button className="bg-white/10 text-white backdrop-blur-md px-8 py-4 rounded-xl font-headline font-bold flex items-center gap-2 border border-white/20">
+              <button className="bg-transparent text-on-primary border-2 border-on-primary/20 hover:bg-on-primary/10 px-8 py-4 rounded-xl font-headline font-bold flex items-center gap-2 transition-all">
                 <span className="material-symbols-outlined">description</span> Technical Support
               </button>
             </div>
           </div>
+        </div>
         </div>
       </section>
     </main>

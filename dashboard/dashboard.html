@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SIRMx Enterprise | Compliance Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#003919",
+                        "on-surface-variant": "#bbcbbb",
+                        "surface-tint": "#4ae183",
+                        "tertiary-container": "#a6b4c6",
+                        "surface-container": "#102418",
+                        "surface-container-lowest": "#011208",
+                        "surface-container-low": "#0b1f14",
+                        "tertiary-fixed-dim": "#bac8da",
+                        "on-primary-container": "#005027",
+                        "on-surface": "#d1e8d6",
+                        "on-primary-fixed": "#00210c",
+                        "on-primary-fixed-variant": "#005228",
+                        "secondary-fixed-dim": "#abcfb8",
+                        "tertiary": "#c1cfe2",
+                        "secondary-fixed": "#c7ebd4",
+                        "primary-container": "#2ecc71",
+                        "on-secondary": "#163627",
+                        "inverse-primary": "#006d37",
+                        "on-tertiary": "#243240",
+                        "on-tertiary-container": "#394655",
+                        "inverse-on-surface": "#213528",
+                        "secondary": "#abcfb8",
+                        "surface-bright": "#293e31",
+                        "primary-fixed": "#6bfe9c",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#3b4857",
+                        "on-error": "#690005",
+                        "on-background": "#d1e8d6",
+                        "primary-fixed-dim": "#4ae183",
+                        "background": "#04170d",
+                        "surface-dim": "#04170d",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-high": "#1a2e22",
+                        "on-tertiary-fixed": "#0f1d2a",
+                        "error-container": "#93000a",
+                        "surface": "#04170d",
+                        "outline": "#869486",
+                        "secondary-container": "#30503e",
+                        "primary": "#54e98a",
+                        "surface-variant": "#25392d",
+                        "surface-container-highest": "#25392d",
+                        "on-secondary-container": "#9dc1ab",
+                        "outline-variant": "#3d4a3e",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#d6e4f7",
+                        "inverse-surface": "#d1e8d6",
+                        "on-secondary-fixed-variant": "#2d4d3c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .sidebar-active { background-color: #1A2E22; color: #54E98A; font-weight: 600; }
+        .glass-panel { background: rgba(37, 57, 45, 0.4); backdrop-filter: blur(20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Authority: JSON & Design System) -->
+<aside class="h-screen w-64 bg-[#0B1F14] dark:bg-[#0B1F14] flex flex-col py-6 fixed left-0 top-0 z-50">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-2xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<h1 class="text-2xl font-bold text-[#54E98A] tracking-tighter">SIRMx</h1>
+<p class="text-[10px] text-on-surface-variant font-medium tracking-widest uppercase">Enterprise Admin</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto no-scrollbar">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#54E98A] bg-[#1A2E22] font-semibold transition-transform duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Regulations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-['Manrope'] tracking-tight text-sm">AI Insights</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Team</span>
+</a>
+<div class="pt-8 pb-2 px-4">
+<p class="text-[10px] text-outline tracking-widest uppercase">System</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Billing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#BBCBBB] hover:bg-[#25392D] hover:text-[#54E98A] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-['Manrope'] tracking-tight text-sm">Help</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<div class="bg-surface-container-high rounded-xl p-4">
+<div class="flex items-center gap-3 mb-3">
+<img alt="Admin User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="Professional headshot of a corporate executive in a dark suit with a focused and confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5A1oWD9KimV7iKh47Ea_XKE05lvsAUU2HNbvX3FsTljPF0PdiQkJKgN82p21OkB-sf-QagT9MdxBgQGz5zIZ8A5Ht6Q2aHNoD2ETAE7OjeZf_G5fas1-A2I_qOeVuIjrBry7Ete8cQ9c-1dwTtEAlIsH3Emh6b2t-CkOjPk-0LHlw1ChwiTvjtfTi17_1NYLWDOqqnill2QRY7TxMx62uv0ttDPIvgugXvLnq4ykkXXKmvoo0JPijVLieuYVzXusvlIuwsA"/>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold truncate">Alexander Vance</p>
+<p class="text-[10px] text-on-surface-variant truncate">Chief Risk Officer</p>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-highest text-primary text-xs rounded-lg font-medium hover:bg-surface-variant transition-colors">
+                    Log Out
+                </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar (Authority: JSON) -->
+<header class="flex justify-between items-center px-8 py-4 w-full bg-[#04170D]/80 backdrop-blur-xl sticky top-0 z-40">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 text-sm text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary transition-all" placeholder="Search regulations, tasks, or insights..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-[#BBCBBB] hover:text-[#54E98A] transition-opacity cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="text-[#BBCBBB] hover:text-[#54E98A] transition-opacity cursor-pointer active:opacity-70 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-background"></span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant opacity-30"></div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-[#54E98A]">SIRMx v4.2</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8 overflow-y-auto">
+<!-- Page Header (Editorial Authority) -->
+<section class="flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-extrabold headline tracking-tight text-on-surface">Dashboard Overview</h2>
+<p class="text-on-surface-variant mt-1">Real-time regulatory pulse and compliance metrics.</p>
+</div>
+<button class="px-6 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl text-sm shadow-lg shadow-primary/10 hover:brightness-110 transition-all">
+                    Generate Audit Report
+                </button>
+</section>
+<!-- Metric Cards (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-wider mb-2">Total Regulations</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold headline">1,428</h3>
+<span class="text-primary text-xs font-bold flex items-center">+12% <span class="material-symbols-outlined text-[14px]">arrow_upward</span></span>
+</div>
+<div class="mt-4 flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-low bg-surface-container-high flex items-center justify-center text-[10px] text-primary">EU</div>
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-low bg-surface-container-high flex items-center justify-center text-[10px] text-primary">US</div>
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-low bg-surface-container-high flex items-center justify-center text-[10px] text-primary">UK</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group border-l-4 border-primary">
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-wider mb-2">Compliance Score</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold headline text-primary">84%</h3>
+<span class="text-on-surface-variant text-[10px]">Healthy</span>
+</div>
+<div class="mt-5 w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[84%] rounded-full shadow-[0_0_8px_rgba(84,233,138,0.5)]"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group">
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-wider mb-2">Active Tasks</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold headline">42</h3>
+<span class="text-error text-xs font-bold flex items-center">8 critical</span>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] text-on-surface">Updated 2h ago</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group">
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-wider mb-2">Risk Exposure</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-3xl font-bold headline">Medium</h3>
+</div>
+<div class="mt-5 flex items-center gap-1">
+<div class="w-full h-1.5 rounded-full bg-primary/20"></div>
+<div class="w-full h-1.5 rounded-full bg-primary/20"></div>
+<div class="w-full h-1.5 rounded-full bg-secondary/50"></div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest"></div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+<!-- Main Data Visualizations -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Compliance Gauge & Categories (Asymmetric Authority) -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col gap-8">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-xl font-bold headline">Risk Exposure by Category</h4>
+<p class="text-sm text-on-surface-variant">Year-to-date categorical distribution</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-highest rounded-lg text-primary">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+<button class="p-2 bg-surface-container-highest rounded-lg text-primary">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-between gap-6 py-4">
+<!-- Bar Chart Item -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-on-surface">Data Privacy &amp; GDPR</span>
+<span class="text-primary">76%</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[76%] rounded-full"></div>
+</div>
+</div>
+<!-- Bar Chart Item -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-on-surface">Financial Reporting (SEC)</span>
+<span class="text-tertiary">42%</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[42%] rounded-full"></div>
+</div>
+</div>
+<!-- Bar Chart Item -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-on-surface">Operational Resiliency</span>
+<span class="text-primary-container">61%</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[61%] rounded-full"></div>
+</div>
+</div>
+<!-- Bar Chart Item -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-on-surface">ESG Standards</span>
+<span class="text-error">15%</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[15%] rounded-full opacity-70"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed (Editorial Layout) -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col">
+<h4 class="text-xl font-bold headline mb-6">Recent Activity</h4>
+<div class="flex-1 space-y-6 relative">
+<!-- Timeline Track -->
+<div class="absolute left-[11px] top-2 bottom-2 w-[2px] bg-surface-container-highest opacity-40"></div>
+<!-- Activity Item -->
+<div class="relative flex gap-4 pl-8 group">
+<div class="absolute left-0 top-1.5 w-6 h-6 bg-surface-container-low rounded-full flex items-center justify-center z-10">
+<div class="w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-primary/20"></div>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-on-surface">New Regulation Detected</p>
+<p class="text-xs text-on-surface-variant leading-relaxed mt-1">EU AI Act technical amendments published. AI Insights generating impact summary.</p>
+<p class="text-[10px] text-outline uppercase tracking-wider mt-2">Just Now</p>
+</div>
+</div>
+<!-- Activity Item -->
+<div class="relative flex gap-4 pl-8 group">
+<div class="absolute left-0 top-1.5 w-6 h-6 bg-surface-container-low rounded-full flex items-center justify-center z-10">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary"></div>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-on-surface">Task Completed</p>
+<p class="text-xs text-on-surface-variant leading-relaxed mt-1">"Q3 Cybersecurity Audit" verified by Sarah Jenkins.</p>
+<p class="text-[10px] text-outline uppercase tracking-wider mt-2">2 Hours Ago</p>
+</div>
+</div>
+<!-- Activity Item -->
+<div class="relative flex gap-4 pl-8 group">
+<div class="absolute left-0 top-1.5 w-6 h-6 bg-surface-container-low rounded-full flex items-center justify-center z-10">
+<div class="w-2.5 h-2.5 rounded-full bg-error"></div>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-on-surface">Compliance Alert</p>
+<p class="text-xs text-on-surface-variant leading-relaxed mt-1">Drift detected in "Asset Liquidity" monitoring node.</p>
+<p class="text-[10px] text-outline uppercase tracking-wider mt-2">5 Hours Ago</p>
+</div>
+</div>
+</div>
+<button class="mt-8 text-center text-xs font-bold text-primary hover:underline transition-all">
+                        View All Activity
+                    </button>
+</div>
+</div>
+<!-- Intelligent Insights (Glassmorphism Card) -->
+<section class="glass-panel rounded-xl p-8 border border-outline-variant/10">
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center shrink-0 shadow-[0_0_30px_rgba(84,233,138,0.2)]">
+<span class="material-symbols-outlined text-4xl text-on-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex-1">
+<h4 class="text-2xl font-bold headline text-[#54E98A]">AI Insight of the Day</h4>
+<p class="text-on-surface leading-relaxed mt-2 text-lg italic">"Based on current velocity, your SEC 17a-4 compliance score is projected to drop by 4% next quarter unless the 'Record Retention' task backlog is resolved by Friday."</p>
+<div class="mt-4 flex gap-4">
+<button class="text-xs font-bold px-4 py-2 bg-surface-container-highest text-primary rounded-lg hover:bg-surface-variant">View Action Plan</button>
+<button class="text-xs font-bold px-4 py-2 text-on-surface-variant hover:text-on-surface">Dismiss</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB (Suppressed on Dashboard as per shell rules if logic dictates, but keeping for UX if needed - here we render it only on Top Level) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+</body></html>

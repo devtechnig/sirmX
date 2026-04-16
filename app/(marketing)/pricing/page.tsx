@@ -2,25 +2,28 @@ export default function PricingPage() {
   return (
     <main className="pt-32">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 text-center mb-24">
+      <section className="mb-24">
+        <div className="max-w-7xl mx-auto px-6 text-center">
         <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6">
           Pricing & Plans
         </span>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-emerald-900 mb-8 max-w-4xl mx-auto leading-[1.1]">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-8 max-w-4xl mx-auto leading-[1.1]">
           Compliance Plans for Every Stage
         </h1>
         <p className="text-lg text-on-surface-variant max-w-2xl mx-auto font-body leading-relaxed">
           Scale your regulatory intelligence with a framework built for precision. Choose the path that matches your operational
           complexity.
         </p>
+        </div>
       </section>
 
       {/* Pricing Tiers Grid */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
+      <section className="mb-32">
+        <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Starter Tier */}
-          <div className="bg-surface-container-low p-8 rounded-xl flex flex-col border border-outline-variant/10">
-            <h3 className="text-xl font-bold text-emerald-900 mb-2">Starter</h3>
+          <div className="bg-surface-container-low p-8 rounded-xl flex flex-col border border-outline-variant/10 transition-all hover:bg-surface-container">
+            <h3 className="text-xl font-bold text-primary mb-2">Starter</h3>
             <p className="text-sm text-on-surface-variant mb-8 h-10">
               Essential tools for emerging startups navigating initial compliance.
             </p>
@@ -47,22 +50,22 @@ export default function PricingPage() {
             </button>
           </div>
           {/* Professional Tier (Featured) */}
-          <div className="primary-gradient p-10 rounded-xl flex flex-col text-white whisper-shadow relative scale-105 z-10">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-fixed text-on-primary-fixed px-4 py-1 rounded-full text-xs font-black tracking-widest uppercase">
+          <div className="bg-primary p-10 rounded-xl flex flex-col text-on-primary shadow-2xl shadow-primary/20 relative scale-105 z-10 transition-all">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-on-primary text-primary px-4 py-1 rounded-full text-[10px] font-black tracking-[0.2em] uppercase">
               Recommended
             </div>
             <h3 className="text-2xl font-bold mb-2">Professional</h3>
-            <p className="text-white/80 mb-8 h-10">
+            <p className="text-on-primary/80 mb-8 h-10">
               Comprehensive intelligence for established firms with high-volume regulatory needs.
             </p>
             <div className="mb-8">
               <span className="text-5xl font-extrabold">₦450,000</span>
-              <span className="text-white/70 text-sm font-medium">/mo</span>
+              <span className="text-on-primary/70 text-sm font-medium">/mo</span>
             </div>
             <ul className="space-y-4 mb-10 flex-grow">
               <li className="flex items-start gap-3 text-sm">
                 <span
-                  className="material-symbols-outlined text-primary-fixed text-xl"
+                  className="material-symbols-outlined text-on-primary text-xl"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   check_circle
@@ -71,7 +74,7 @@ export default function PricingPage() {
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <span
-                  className="material-symbols-outlined text-primary-fixed text-xl"
+                  className="material-symbols-outlined text-on-primary text-xl"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   check_circle
@@ -80,7 +83,7 @@ export default function PricingPage() {
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <span
-                  className="material-symbols-outlined text-primary-fixed text-xl"
+                  className="material-symbols-outlined text-on-primary text-xl"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   check_circle
@@ -89,7 +92,7 @@ export default function PricingPage() {
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <span
-                  className="material-symbols-outlined text-primary-fixed text-xl"
+                  className="material-symbols-outlined text-on-primary text-xl"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   check_circle
@@ -97,13 +100,13 @@ export default function PricingPage() {
                 Collaborative workflows
               </li>
             </ul>
-            <button className="w-full py-4 rounded-lg bg-white text-primary font-bold hover:bg-surface-bright transition-all shadow-lg">
+            <button className="w-full py-4 rounded-lg bg-background text-on-background font-bold hover:opacity-90 transition-all shadow-lg active:scale-95">
               Get Started Now
             </button>
           </div>
           {/* Enterprise Tier */}
-          <div className="bg-surface-container-low p-8 rounded-xl flex flex-col border border-outline-variant/10">
-            <h3 className="text-xl font-bold text-emerald-900 mb-2">Enterprise</h3>
+          <div className="bg-surface-container-low p-8 rounded-xl flex flex-col border border-outline-variant/10 transition-all hover:bg-surface-container">
+            <h3 className="text-xl font-bold text-primary mb-2">Enterprise</h3>
             <p className="text-sm text-on-surface-variant mb-8 h-10">
               Tailored framework for global organizations requiring custom integrations.
             </p>
@@ -124,16 +127,18 @@ export default function PricingPage() {
                 Custom data residency options
               </li>
             </ul>
-            <button className="w-full py-4 rounded-lg bg-emerald-900 text-white font-bold hover:bg-emerald-800 transition-colors">
+            <button className="w-full py-4 rounded-lg text-primary border border-primary font-bold hover:bg-primary/5 transition-colors">
               Contact Sales
             </button>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <h2 className="text-3xl font-bold text-emerald-900 mb-12 text-center">Feature Comparison</h2>
+      <section className="mb-32">
+        <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-primary mb-12 text-center">Feature Comparison</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
@@ -141,11 +146,11 @@ export default function PricingPage() {
                 <th className="py-6 px-4 font-manrope font-bold text-on-surface-variant text-sm uppercase tracking-wider">
                   Features
                 </th>
-                <th className="py-6 px-4 font-manrope font-bold text-emerald-900 text-center">Starter</th>
-                <th className="py-6 px-4 font-manrope font-bold text-primary text-center bg-primary/5 rounded-t-xl">
+                <th className="py-6 px-4 font-manrope font-bold text-on-surface text-center">Starter</th>
+                <th className="py-6 px-4 font-manrope font-bold text-primary text-center bg-primary/5 rounded-t-xl transition-all">
                   Professional
                 </th>
-                <th className="py-6 px-4 font-manrope font-bold text-emerald-900 text-center">Enterprise</th>
+                <th className="py-6 px-4 font-manrope font-bold text-on-surface text-center">Enterprise</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-outline-variant/10">
@@ -182,39 +187,42 @@ export default function PricingPage() {
             </tbody>
           </table>
         </div>
+        </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="max-w-4xl mx-auto px-6 mb-32">
-        <h2 className="text-3xl font-bold text-emerald-900 mb-12 text-center">Frequently Asked Questions</h2>
+      <section className="mb-32">
+        <div className="max-w-4xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-primary mb-12 text-center">Frequently Asked Questions</h2>
         <div className="space-y-6">
-          <div className="p-6 bg-surface-container-low rounded-xl">
-            <h4 className="font-bold text-emerald-900 mb-2">Can we switch plans at any time?</h4>
+          <div className="p-6 bg-surface-container-low rounded-xl border border-outline-variant/5">
+            <h4 className="font-bold text-on-surface mb-2">Can we switch plans at any time?</h4>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               Yes, you can upgrade or downgrade your plan directly from your dashboard. Pro-rated charges will apply to your next
               billing cycle.
             </p>
           </div>
-          <div className="p-6 bg-surface-container-low rounded-xl">
-            <h4 className="font-bold text-emerald-900 mb-2">How does the AI Analysis token system work?</h4>
+          <div className="p-6 bg-surface-container-low rounded-xl border border-outline-variant/5">
+            <h4 className="font-bold text-on-surface mb-2">How does the AI Analysis token system work?</h4>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               Starter plans include 10 tokens per month for deep regulatory impact analysis. Professional and Enterprise tiers
               enjoy unlimited processing for all documents.
             </p>
           </div>
-          <div className="p-6 bg-surface-container-low rounded-xl">
-            <h4 className="font-bold text-emerald-900 mb-2">Is my data secure and compliant?</h4>
+          <div className="p-6 bg-surface-container-low rounded-xl border border-outline-variant/5">
+            <h4 className="font-bold text-on-surface mb-2">Is my data secure and compliant?</h4>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               sirmX is SOC2 Type II and GDPR compliant. We use AES-256 encryption at rest and TLS 1.3 in transit to ensure your
               sensitive data is always protected.
             </p>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Enterprise CTA */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="relative overflow-hidden rounded-3xl bg-emerald-900 p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 text-white">
+      <section className="mb-32">
+        <div className="max-w-7xl mx-auto px-6">
+        <div className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 text-on-primary transition-all duration-500 border border-outline-variant/10">
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -224,19 +232,20 @@ export default function PricingPage() {
           ></div>
           <div className="relative z-10 max-w-xl">
             <h2 className="text-4xl font-bold mb-6">Need a custom framework for your global team?</h2>
-            <p className="text-emerald-100 text-lg mb-0">
+            <p className="text-on-primary text-lg mb-0 font-medium">
               Our enterprise architects can build a bespoke regulatory monitoring environment tailored to your specific
               jurisdictional requirements.
             </p>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <button className="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-lg font-bold text-lg hover:bg-primary-fixed-dim transition-all text-center">
+            <button className="bg-background text-on-background px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-all text-center shadow-xl shadow-black/10 active:scale-95">
               Talk to an Architect
             </button>
-            <button className="border-2 border-white/20 hover:bg-white/10 px-8 py-4 rounded-lg font-bold text-lg transition-all text-center">
+            <button className="border-2 border-on-primary/20 hover:bg-on-primary/10 px-8 py-4 rounded-lg font-bold text-lg transition-all text-center">
               View Case Studies
             </button>
           </div>
+        </div>
         </div>
       </section>
     </main>
