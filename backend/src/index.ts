@@ -10,7 +10,23 @@ const FRONTEND_URL = process.env.FRONTEND_URL ?? 'http://localhost:3000';
 // ─── Middleware ────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: FRONTEND_URL,
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, or server-to-server)
+      if (!origin) return callback(null, true);
+      
+      const allowedOrigins = [
+        FRONTEND_URL,
+        'http://localhost:3000',
+        'http://localhost:3001'
+      ];
+      
+      // Auto-allow Vercel deployment URLs and explicitly allowed origins
+      if (origin.endsWith('.vercel.app') || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   }),
 );
