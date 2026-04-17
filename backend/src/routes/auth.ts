@@ -73,7 +73,7 @@ router.post('/register', async (req: Request, res: Response) => {
 // can complete the auto-login without asking for the password again.
 router.get('/verify', async (req: Request, res: Response) => {
   const { token } = req.query;
-  const frontendUrl = process.env.FRONTEND_URL ?? 'http://localhost:3000';
+  const frontendUrl = process.env.FRONTEND_URL ?? 'https://sirm-x.vercel.app';
 
   if (!token || typeof token !== 'string') {
     res.status(400).json({ error: 'Missing or invalid token' });

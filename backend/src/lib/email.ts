@@ -9,7 +9,7 @@ const {
   SMTP_USER,
   SMTP_PASS,
   EMAIL_FROM = 'SIRMx <noreply@sirmx.com>',
-  FRONTEND_URL = 'http://localhost:3000',
+  FRONTEND_URL = 'https://sirm-x.vercel.app',
 } = process.env;
 
 /** Returns true if SMTP credentials are fully configured */

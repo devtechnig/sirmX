@@ -5,7 +5,7 @@ import authRouter from './routes/auth';
 
 const app = express();
 const PORT = process.env.PORT ?? 3001;
-const FRONTEND_URL = process.env.FRONTEND_URL ?? 'http://localhost:3000';
+const FRONTEND_URL = process.env.FRONTEND_URL ?? 'https://sirm-x.vercel.app';
 
 // ─── Middleware ────────────────────────────────────────────────────────────────
 app.use(
