@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -21,7 +21,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -244,5 +244,13 @@ export default function LoginPage() {
         </Link>
       </motion.p>
     </motion.div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="text-center p-8 text-sm font-medium">Loading...</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }

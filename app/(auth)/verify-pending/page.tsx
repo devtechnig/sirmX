@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,7 +10,7 @@ const POLL_INTERVAL_MS = 4000; // check every 4 seconds
 
 type PageState = 'waiting' | 'verified' | 'redirecting';
 
-export default function VerifyPendingPage() {
+function VerifyPendingContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -364,5 +364,13 @@ export default function VerifyPendingPage() {
 
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function VerifyPendingPage() {
+  return (
+    <Suspense fallback={<div className="text-center p-8 text-sm font-medium">Loading...</div>}>
+      <VerifyPendingContent />
+    </Suspense>
   );
 }
