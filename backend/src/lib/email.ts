@@ -10,7 +10,7 @@ const {
   SMTP_PASS,
   EMAIL_FROM = 'SIRMx <noreply@sirmx.com>',
   FRONTEND_URL = 'https://sirm-x.vercel.app',
-  VERIFICATION_URL, // Optional override: e.g. https://sirmx.onrender.com/api/auth/verify
+  VERIFICATION_URL = 'https://sirm-x.vercel.app', // Optional override: e.g. https://sirmx.onrender.com/api/auth/verify
 } = process.env;
 
 /** Returns true if SMTP credentials are fully configured */
