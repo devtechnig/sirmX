@@ -73,7 +73,7 @@ router.post('/register', async (req: Request, res: Response) => {
 // can complete the auto-login without asking for the password again.
 router.get('/verify', async (req: Request, res: Response) => {
   const { token } = req.query;
-  const frontendUrl = process.env.FRONTEND_URL ?? 'https://sirm-x.vercel.app';
+  const frontendUrl = (process.env.FRONTEND_URL || 'https://sirm-x.vercel.app').replace(/\/$/, '');
 
   if (!token || typeof token !== 'string') {
     res.status(400).json({ error: 'Missing or invalid token' });
@@ -84,6 +84,7 @@ router.get('/verify', async (req: Request, res: Response) => {
     const user = await prisma.user.findUnique({ where: { verifyToken: token } });
 
     if (!user) {
+      console.warn(`[verify] Invalid token attempt: ${token}`);
       res.redirect(`${frontendUrl}/login?error=invalid_token`);
       return;
     }
@@ -107,11 +108,12 @@ router.get('/verify', async (req: Request, res: Response) => {
     // Issue JWT immediately — the pending page will store it + redirect to /dashboard
     const jwt = signToken({ userId: user.id, email: user.email });
 
-    res.redirect(
-      `${frontendUrl}/verify-pending?verified=true&token=${jwt}&email=${encodeURIComponent(user.email)}&name=${encodeURIComponent(user.name ?? '')}`,
-    );
+    const redirectUrl = `${frontendUrl}/verify-pending?verified=true&token=${jwt}&email=${encodeURIComponent(user.email)}&name=${encodeURIComponent(user.name ?? '')}`;
+    
+    console.log(`✅ User ${user.email} verified. Redirecting to: ${redirectUrl}`);
+    res.redirect(redirectUrl);
   } catch (err) {
-    console.error('[verify]', err);
+    console.error('[verify] Unexpected error:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

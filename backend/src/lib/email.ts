@@ -10,6 +10,7 @@ const {
   SMTP_PASS,
   EMAIL_FROM = 'SIRMx <noreply@sirmx.com>',
   FRONTEND_URL = 'https://sirm-x.vercel.app',
+  VERIFICATION_URL, // Optional override: e.g. https://sirmx.onrender.com/api/auth/verify
 } = process.env;
 
 /** Returns true if SMTP credentials are fully configured */
@@ -36,8 +37,10 @@ if (transporter) {
 }
 
 export async function sendVerificationEmail(to: string, token: string): Promise<void> {
-  // The link points to the Next.js frontend proxy route, not the backend directly
-  const verifyUrl = `${FRONTEND_URL}/api/verify?token=${token}`;
+  // Prefer the direct VERIFICATION_URL if provided, otherwise use the frontend proxy
+  const verifyUrl = VERIFICATION_URL
+    ? `${VERIFICATION_URL}${VERIFICATION_URL.includes('?') ? '&' : '?'}token=${token}`
+    : `${FRONTEND_URL}/api/verify?token=${token}`;
 
   if (!hasSmtp || !transporter) {
     // ── Dev fallback: print a clickable link to the console ──────────────────
