@@ -15,13 +15,13 @@ app.use(
       if (!origin) return callback(null, true);
       
       const allowedOrigins = [
-        FRONTEND_URL,
+        FRONTEND_URL, // Reads from .env if set
         'http://localhost:3000',
-        'http://localhost:3001'
+        'http://localhost:3001',
+        'https://sirm-x.vercel.app' // Strict production URL
       ];
       
-      // Auto-allow Vercel deployment URLs and explicitly allowed origins
-      if (origin.endsWith('.vercel.app') || allowedOrigins.includes(origin)) {
+      if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
