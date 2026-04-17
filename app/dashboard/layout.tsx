@@ -1,20 +1,66 @@
 'use client';
 
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import DashboardSidebar from '@/components/dashboard/DashboardSidebar';
 import DashboardHeader from '@/components/dashboard/DashboardHeader';
 import { motion } from 'framer-motion';
 import PageTransition from "@/components/ui/PageTransition";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
+  const [authChecked, setAuthChecked] = useState(false);
+
   useLayoutEffect(() => {
     document.documentElement.classList.add('dark');
     document.documentElement.style.colorScheme = 'dark';
   }, []);
+
+  // ── Auth guard ───────────────────────────────────────────────────────────────
+  useEffect(() => {
+    const token = localStorage.getItem('sirmx_token');
+
+    if (!token) {
+      router.replace('/login');
+      return;
+    }
+
+    // Validate the token with the backend
+    fetch(`${API_URL}/api/auth/me`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          localStorage.removeItem('sirmx_token');
+          localStorage.removeItem('sirmx_user');
+          router.replace('/login');
+        } else {
+          setAuthChecked(true);
+        }
+      })
+      .catch(() => {
+        // Network error — allow access optimistically so offline use isn't broken
+        setAuthChecked(true);
+      });
+  }, [router]);
+
+  // Show a minimal loading screen while auth is being verified
+  if (!authChecked) {
+    return (
+      <div className="dark bg-dash-background min-h-screen flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-8 h-8 border-2 border-dash-primary/30 border-t-dash-primary rounded-full animate-spin" />
+          <p className="text-dash-on-surface-variant text-sm font-medium">Authenticating…</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="dark bg-dash-background text-dash-on-surface min-h-screen Selection:bg-dash-primary/30">
